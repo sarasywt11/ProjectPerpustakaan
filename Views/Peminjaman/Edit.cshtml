@@ -1,0 +1,54 @@
+@model PerpusWebProject.Models.Peminjaman
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Peminjaman</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdPeminjaman" />
+            <div class="form-group">
+                <label asp-for="IdBuku" class="control-label"></label>
+                <select asp-for="IdBuku" class="form-control" asp-items="ViewBag.IdBuku"></select>
+                <span asp-validation-for="IdBuku" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdUser" class="control-label"></label>
+                <select asp-for="IdUser" class="form-control" asp-items="ViewBag.IdUser"></select>
+                <span asp-validation-for="IdUser" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TanggalPinjam" class="control-label"></label>
+                <input asp-for="TanggalPinjam" class="form-control" />
+                <span asp-validation-for="TanggalPinjam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TanggalKembali" class="control-label"></label>
+                <input asp-for="TanggalKembali" class="form-control" />
+                <span asp-validation-for="TanggalKembali" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

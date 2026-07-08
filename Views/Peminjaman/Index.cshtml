@@ -1,0 +1,92 @@
+@model IEnumerable<PerpusWebProject.Models.Peminjaman>
+
+@{
+    ViewData["Title"] = "Data Peminjaman";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold">
+        📚 Data Peminjaman Buku
+    </h2>
+    <a asp-action="Create" class="btn btn-primary">
+        + Tambah Peminjaman
+    </a>
+</div>
+
+<table class="table table-bordered table-hover shadow-sm">
+    <thead class="table-primary">
+        <tr>
+            <th>
+                Tanggal Pinjam
+            </th>
+            <th>
+                Tanggal Kembali
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Buku
+            </th>
+            <th>
+                Anggota
+            </th>
+            <th>
+                Aksi
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.TanggalPinjam.ToString("dd MMM yyyy")
+                </td>
+                <td>
+                    @(item.TanggalKembali.HasValue
+                ? item.TanggalKembali.Value.ToString("dd MMM yyyy")
+                : "-")
+                </td>
+                <td>
+                    @if (item.Status == "Dipinjam")
+                    {
+                        <span class="badge bg-warning text-dark">
+                            Dipinjam
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-success">
+                            Dikembalikan
+                        </span>
+                    }
+                </td>
+                <td>
+                    @item.Buku.Judul
+                </td>
+                <td>
+                    @item.User.Nama
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdPeminjaman" class="btn btn-sm btn-warning">
+                        Edit
+                    </a>
+                    <a asp-action="Details" asp-route-id="@item.IdPeminjaman" class="btn btn-sm btn-info">
+                        Detail
+                    </a>
+                    @if (item.Status == "Dipinjam")
+                    {
+                        <a asp-action="Kembalikan" asp-route-id="@item.IdPeminjaman" class="btn btn-sm btn-success">
+                            Kembalikan
+                        </a>
+                    }
+                    <a asp-action="Delete" asp-route-id="@item.IdPeminjaman" class="btn btn-sm btn-danger">
+
+                        Hapus
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

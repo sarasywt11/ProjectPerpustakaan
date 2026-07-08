@@ -1,0 +1,58 @@
+@model PerpusWebProject.Models.Buku
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Buku</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Judul" class="control-label"></label>
+                <input asp-for="Judul" class="form-control" />
+                <span asp-validation-for="Judul" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Penulis" class="control-label"></label>
+                <input asp-for="Penulis" class="form-control" />
+                <span asp-validation-for="Penulis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Penerbit" class="control-label"></label>
+                <input asp-for="Penerbit" class="form-control" />
+                <span asp-validation-for="Penerbit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TahunTerbit" class="control-label"></label>
+                <input asp-for="TahunTerbit" class="form-control" />
+                <span asp-validation-for="TahunTerbit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kategori" class="control-label"></label>
+                <input asp-for="Kategori" class="form-control" />
+                <span asp-validation-for="Kategori" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Stok" class="control-label"></label>
+                <input asp-for="Stok" class="form-control" />
+                <span asp-validation-for="Stok" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

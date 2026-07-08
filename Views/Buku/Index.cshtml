@@ -1,0 +1,84 @@
+@model IEnumerable<PerpusWebProject.Models.Buku>
+
+@{
+    ViewData["Title"] = "Data Buku";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h2 class="fw-bold">
+        📖 Data Buku
+    </h2>
+
+    <a asp-action="Create" class="btn btn-primary">
+        + Tambah Buku
+    </a>
+</div>
+
+<table class="table table-bordered table-hover shadow-sm">
+    <thead class="table-primary">
+
+        <tr>
+            <th>
+                Judul
+            </th>
+            <th>
+                Penulis
+            </th>
+            <th>
+                Penerbit
+            </th>
+            <th>
+                Tahun Terbit
+            </th>
+            <th>
+                Kategori
+            </th>
+            <th>
+                Stok
+            </th>
+            <th>
+                Aksi
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Judul
+                </td>
+                <td>
+                    @item.Penulis
+                </td>
+                <td>
+                    @item.Penerbit
+                </td>
+                <td>
+                    @item.TahunTerbit
+                </td>
+                <td>
+                    @item.Kategori
+                </td>
+                <td>
+                    <span class="badge bg-info text-dark">
+                        @item.Stok
+                    </span>
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdBuku" class="btn btn-sm btn-warning">
+                        Edit
+                    </a>
+                    <a asp-action="Details" asp-route-id="@item.IdBuku" class="btn btn-sm btn-info">
+                        Detail
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.IdBuku" class="btn btn-sm btn-danger">
+                        Hapus
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

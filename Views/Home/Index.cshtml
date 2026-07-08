@@ -1,0 +1,127 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container">
+
+    ```
+    <div class="text-center mb-5">
+
+        <h1 class="display-5 fw-bold">
+            📚 Sistem Informasi Perpustakaan
+        </h1>
+
+        <p class="text-muted">
+            Kelola data buku, anggota, dan peminjaman dengan mudah
+        </p>
+
+    </div>
+
+
+    <div class="row g-4">
+
+
+        <div class="col-md-4">
+
+            <div class="card shadow-sm border-0 h-100">
+
+                <div class="card-body text-center">
+
+                    <h1>📖</h1>
+                    <h2 class="fw-bold">
+                        @ViewBag.TotalBuku
+                    </h2>
+
+                    <h5 class="card-title">
+                        Data Buku
+                    </h5>
+
+                    <p class="text-muted">
+                        Kelola koleksi buku perpustakaan
+                    </p>
+
+                    <a class="btn btn-primary" asp-controller="Buku" asp-action="Index">
+
+                        Lihat Buku
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="col-md-4">
+
+            <div class="card shadow-sm border-0 h-100">
+
+                <div class="card-body text-center">
+
+                    <h1>👤</h1>
+
+                    <h2 class="fw-bold">
+                        @ViewBag.TotalUser
+                    </h2>
+
+                    <h5 class="card-title">
+                        Data Anggota
+                    </h5>
+
+                    <p class="text-muted">
+                        Kelola data pengguna perpustakaan
+                    </p>
+
+                    <a class="btn btn-primary" asp-controller="User" asp-action="Index">
+
+                        Lihat Anggota
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="col-md-4">
+
+            <div class="card shadow-sm border-0 h-100">
+
+                <div class="card-body text-center">
+
+                    <h1>🔄</h1>
+
+                    <h2 class="fw-bold">
+                        @ViewBag.TotalPeminjaman
+                    </h2>
+
+                    <h5 class="card-title">
+                        Peminjaman
+                    </h5>
+
+                    <p class="text-muted">
+                        Kelola transaksi peminjaman buku
+                    </p>
+
+                    <a class="btn btn-primary" asp-controller="Peminjaman" asp-action="Index">
+
+                        Lihat Peminjaman
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+    ```
+
+</div>
